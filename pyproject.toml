@@ -1,0 +1,31 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "pydantic-excel"
+version = "0.1.0"
+description = "A library used to parse and dump excel files into Pydantic models"
+authors = [{ name = "Jonas Meyer-Ohle", email = "me@jonasmeyerohle.dev" }]
+requires-python = ">=3.10, <=3.14"
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries",
+]
+readme = "README.md"
+dependencies = ["openpyxl>=3.1.5"]
+
+[project.urls]
+Repository = "https://github.com/jonas-meyer/pydantic-excel"
+Documentation = "https://docs.jonasmeyerohle.dev/pydantic-excel"
+Changelog = "https://github.com/jonas-meyer/pydantic-excel/blob/main/CHANGELOG.md"
+Releases = "https://github.com/jonas-meyer/pydantic-excel/releases"
