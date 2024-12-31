@@ -1,7 +1,3 @@
-[build-system]
-requires = ["maturin>=1.0,<2.0"]
-build-backend = "maturin"
-
 [project]
 name = "pydantic-excel"
 version = "0.1.0"
@@ -23,6 +19,11 @@ classifiers = [
 ]
 readme = "README.md"
 dependencies = ["openpyxl>=3.1.5"]
+[dependency-groups]
+docs = [
+    "mkdocs-material",
+]
+
 
 [project.urls]
 Repository = "https://github.com/jonas-meyer/pydantic-excel"
