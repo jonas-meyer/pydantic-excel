@@ -1,0 +1,17 @@
+name: trigger publish docs 
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PAT }}
+          repository: username/my-repo
+          event-type: trigger_publish_docs
