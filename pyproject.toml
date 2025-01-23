@@ -18,10 +18,52 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
 ]
 readme = "README.md"
-dependencies = ["openpyxl>=3.1.5"]
+dependencies = ["fastexcel>=0.12.1", "pydantic>=2.10.5", "xlsxwriter>=3.2.1"]
 
 [project.urls]
 Repository = "https://github.com/jonas-meyer/pydantic-excel"
 Documentation = "https://docs.jonasmeyerohle.dev/pydantic-excel"
 Changelog = "https://github.com/jonas-meyer/pydantic-excel/blob/main/CHANGELOG.md"
 Releases = "https://github.com/jonas-meyer/pydantic-excel/releases"
+
+[dependency-groups]
+dev = ["pytest>=8.3.4"]
+
+[tool.ruff]
+line-length = 120
+target-version = 'py312'
+
+[tool.ruff.lint]
+select = [
+    "F",      # Pyflakes
+    "E",      # pycodestyle (Error)
+    "I",      # isort
+    "D",      # pydocstyle
+    "UP",     # pyupgrade
+    "YTT",    # flake8-2020
+    "B",      # flake8-bugbear
+    "T10",    # flake8-debugger
+    "T20",    # flake8-print
+    "C4",     # flake8-comprehensions
+    "PYI006", # flake8-pyi
+    "PYI062", # flake8-pyi
+    "PYI063", # flake8-pyi
+    "PYI066", # flake8-pyi
+]
+ignore = ["D105", "D107", "D205", "D415", "E501", "B011", "B028", "B904"]
+flake8-quotes = { inline-quotes = "double", multiline-quotes = "double" }
+isort = { known-first-party = ["pydantic", "tests"] }
+mccabe = { max-complexity = 14 }
+pydocstyle = { convention = "google" }
+
+[tool.ruff.lint.per-file-ignores]
+'docs/*' = ['D']
+'pydantic_excel/__init__.py' = ["F405", "F403", "D"]
+'tests/*' = ["D", "B", "C4"]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"docs/**/*.py" = ["T"]
+"tests/**/*.py" = ["T", "E721", "F811"]
+
+[tool.ruff.format]
+quote-style = "double"
